@@ -14,4 +14,6 @@ helper_method :current_user, :logged_in?
     !current_user.nil?
   end
   
+  
+  
 end

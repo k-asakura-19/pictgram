@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  get 'posts/new'
   get 'topics/new'
   get 'sessions/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -16,5 +17,14 @@ Rails.application.routes.draw do
   
   resources :users
   resources :topics
+  resources :posts, only: [:create]
+  
+  
+  get 'favorites/index'
+  post '/favorites', to: 'favorites#create'
+  post '/favorites/destroy', to: 'favorites#destroy'
+  
+  
+  
 
 end

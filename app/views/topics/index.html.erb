@@ -8,11 +8,46 @@
               <%= topic.user.name %>
             </h2>
             <%= image_tag topic.image.url %>
-            <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
-            <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+           
+           
+            
+            <% if !topic.favorite_users.include?(current_user) %>
+            
+              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon'  %>
+              <% end %>
+              
+            <% else %>
+            
+              <%= link_to favorites_destroy_path(topic_id: topic.id), method: :post do %>
+                <%= image_tag 'icons/heart.png', class: 'topic-index-red' %>
+              <% end %>
+              
+            <% end %>
+            
+            <%= topic.favorites.count %>
+           
+            <%= link_to posts_new_path(topic_id: topic.id), method: :get do %>
+                <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+            <% end %>
+           
+            
             <p class="topic-text">
               <%= topic.description %>
             </p>
+            
+            
+            <h3  class="topic-author">コメント</h3>
+            <% topic.posts.each do |post| %>
+              
+                
+                <p class="comment-text">
+                  <%= post.comment %>
+                </p>
+              
+            <% end %>
+
+            
           </div>
         </div>
       </div>
