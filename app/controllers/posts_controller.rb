@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to topics_path, success: 'コメント投稿に成功しました'
     else
-      flash.now[:danger] = "コメント「#{@post.comment}」ユーザー「#{@post.user_id}」トピック「#{@post.topic_id}」投稿に失敗しました"
+      flash.now[:danger] = "投稿に失敗しました"
       render :new
     end
     

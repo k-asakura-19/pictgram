@@ -5,16 +5,16 @@
         
       
         
-        <h1 class="text-center">Comment<%=  "トピック番号「#{@post.topic_id}」" %></h1>
+        <h1 class="text-center">Comment</h1>
         <%= form_for @post do |f| %>
           
 
           <div class="form-group">
-            <%= f.label :comment %>
+            <!--<%= f.label :comment %>-->
             <%= f.text_area :comment, class: 'form-control' %>
             
             <div class="hidden">
-            <%= f.number_field :topic_id, class: 'form-control' %>
+            <%= f.number_field :topic_id %>
             </div>
             
           </div>
