@@ -6,6 +6,15 @@ h1,h2{
   color: #fff;
 }
 
+.text-white-mix{
+  color: #fff;
+  mix-blend-mode: exclusion;
+  font-weight: bold;
+}
+
+
+
+
 .btn-white{
   color: #fff;
   border: 1px solid #fff;
@@ -18,6 +27,8 @@ h1,h2{
     color: #fff;
   }
 }
+
+
 
 .top-hero-wrapper{
   width: 100vw;
